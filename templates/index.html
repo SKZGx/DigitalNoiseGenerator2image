@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Digital Noise</title>
+</head>
+<body>
+    <h1>Add Digital Noise to Your Images</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="noise-level">Noise Level:</label>
+        <input type="range" id="noise-level" name="noise-level" min="0" max="100" value="50">
+        <span id="noise-value">50</span>
+
+        <br>
+
+        <!-- Remove file input, as we're processing all files in the input folder -->
+
+        <button type="submit">Recycle Files</button>
+    </form>
+
+    <script>
+        // Update the displayed noise value when the slider changes
+        const noiseSlider = document.getElementById('noise-level');
+        const noiseValue = document.getElementById('noise-value');
+
+        noiseSlider.addEventListener('input', () => {
+            noiseValue.textContent = noiseSlider.value;
+        });
+    </script>
+</body>
+</html>
